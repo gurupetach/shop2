@@ -24,24 +24,46 @@ defmodule ShopWeb.Dashboard.FormComponent do
      )}
   end
 
-  def handle_event("validate", %{"_target" => ["pdf"]}, socket) do
-    # IO.inspect(params)
+  def handle_event("validate", %{"_target" => ["product", "name"]}, socket) do
+    {:noreply, socket}
+  end
 
+  def handle_event("validate", %{"_target" => ["product", "price"]}, socket) do
+    {:noreply, socket}
+  end
+
+  def handle_event("validate", %{"_target" => ["image"]}, socket) do
     {:noreply, socket}
   end
 
   @impl Phoenix.LiveView
-  def handle_event("save", _params, socket) do
-    # uploaded_files =
-    #   consume_uploaded_entries(socket, :pdf, fn %{path: path}, entry ->
-    #     Documents.create_upload_from_plug_upload(socket.assigns.current_user, %Plug.Upload{
-    #       filename: entry.client_name,
-    #       path: path,
-    #       content_type: entry.client_type
-    #     })
-    #   end)
+  def handle_event(
+        "save",
+        %{"product" => %{"name" => name, "price" => price}},
+        socket
+      ) do
+    consume_uploaded_entries(socket, :image, fn %{path: path}, _entry ->
+      dest = Path.join("priv/static/images/dashboard", "#{name}.jpg")
 
-    {:noreply, push_patch(socket, to: Routes.book_library_index_path(socket, :index))}
+      File.cp!(path, dest)
+      |> case do
+        :ok -> {:ok, "uploaded"}
+        :error -> {:postpone, "To be uploaded later"}
+      end
+    end)
+
+    price = price |> String.to_integer()
+
+    case Products.create_product(%{name: name, price: price, has_image?: true}) do
+      {:ok, _product} ->
+        {:noreply,
+         socket
+         |> put_flash(:info, "Product added to System")
+         |> push_redirect(to: socket.assigns.return_to)}
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        {:noreply, assign(socket, changeset: changeset)}
+    end
   end
 
   defp error_to_string(:too_large), do: "Too large"
