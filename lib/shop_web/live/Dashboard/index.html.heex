@@ -227,7 +227,7 @@
          <div class="">
             <div class="rounded  hover:shadow-lg bg-white  ">
                <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/cloth1.webp")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
+                  <img src={Routes.static_path(@socket, "/images/dashboard/.webp")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
                </div>
                <div class="px-2  ">
                   <div class="font-sans text-xs text-gray-900 truncate ">
@@ -241,4 +241,25 @@
          </div>
       </div>
    </section>
+    <div class="px-5 md:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5 ">
+         <%= for product <- @products do %>
+         <!--Card -->
+         <div class="">
+            <div class="rounded  hover:shadow-lg bg-white  ">
+               <div class=" mb-2 ">
+                  <img src={Routes.static_path(@socket, "/images/dashboard/#{product.name}.webp")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
+               </div>
+               <div class="px-2  ">
+                  <div class="font-sans text-xs text-gray-900 truncate ">
+                     <%= product.name %>
+                  </div>
+               </div>
+               <div class="px-2 ">
+                  <span class=" text-xs  text-gray-500 mr-2 mb-2"><%= product.price%></span>
+               </div>
+              
+            </div>
+         </div>
+         <% end %>
+      </div>
 </div>

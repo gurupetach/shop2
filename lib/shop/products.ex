@@ -8,6 +8,8 @@ defmodule Shop.Products do
 
   alias Shop.Products.Product
 
+  
+
   @doc """
   Returns the list of products.
 

@@ -4,8 +4,13 @@ defmodule ShopWeb.DashboardLive.Index do
   """
 
   use ShopWeb, :live_view
+  alias Shop.Products
 
   def mount(_params, _session, socket) do
+    socket =
+      socket
+      |> assign(:products, Products.list_products())
+
     {:ok, socket}
   end
 end
