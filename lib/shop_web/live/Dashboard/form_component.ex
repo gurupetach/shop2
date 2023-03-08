@@ -36,12 +36,22 @@ defmodule ShopWeb.Dashboard.FormComponent do
     {:noreply, socket}
   end
 
+  def handle_event(
+        "validate",
+        %{"image" => "", "product" => %{"name" => "", "price" => _price}},
+        socket
+      ) do
+    {:noreply, socket}
+  end
+
   @impl Phoenix.LiveView
   def handle_event(
         "save",
         %{"product" => %{"name" => name, "price" => price}},
         socket
       ) do
+    IO.inspect(name, label: "====================================")
+
     consume_uploaded_entries(socket, :image, fn %{path: path}, _entry ->
       dest = Path.join("priv/static/images/dashboard", "#{name}.jpg")
 
