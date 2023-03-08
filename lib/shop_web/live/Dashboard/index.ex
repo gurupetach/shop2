@@ -4,6 +4,8 @@ defmodule ShopWeb.DashboardLive.Index do
   """
 
   use ShopWeb, :live_view
+  import ShopWeb.LiveHelpers
+
   alias Shop.{Repo, Products}
 
   def mount(_params, _session, socket) do
@@ -24,6 +26,11 @@ defmodule ShopWeb.DashboardLive.Index do
     socket =
       socket
       |> assign(:products, Products.list_products())
+  end
+
+  defp apply_action(socket, :new, _params) do
+    socket
+    |> assign(:page_title, "Add Product")
   end
 
   @impl true

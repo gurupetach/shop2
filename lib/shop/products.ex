@@ -44,6 +44,10 @@ defmodule Shop.Products do
     )
   end
 
+  def product_struct(%Product{} = product, attrs \\ %{}) do
+    Product.changeset(product, attrs)
+  end
+
   @doc """
   Creates a product.
 
