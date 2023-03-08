@@ -17,7 +17,7 @@ config :shop, ShopWeb.Endpoint,
   url: [host: System.get_env("PHX_HOST"), port: 443],
   check_origin: System.get_env("ALLOW_URL_ORIGIN")
 
-config :mis, Shop.Repo,
+config :shop, Shop.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: 18,
