@@ -17,7 +17,8 @@ defmodule ShopWeb.Router do
   scope "/", ShopWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    # get "/", PageController, :index
+    live "/", DashboardLive.Index, :index
   end
 
   # Other scopes may use custom stacks.
