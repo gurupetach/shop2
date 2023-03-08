@@ -5,6 +5,8 @@ defmodule Shop.Products.Product do
   schema "products" do
     field :name, :string
     field :price, :integer
+    field(:has_image?, :boolean, default: false)
+
 
     timestamps()
   end
@@ -12,7 +14,7 @@ defmodule Shop.Products.Product do
   @doc false
   def changeset(product, attrs) do
     product
-    |> cast(attrs, [:name, :price])
+    |> cast(attrs, [:name, :price, :has_image?])
     |> validate_required([:name, :price])
   end
 end

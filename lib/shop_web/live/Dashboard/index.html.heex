@@ -1,265 +1,32 @@
 <div class="ml-4">
    <h1>TECTONA SHOP</h1>
-   <section id="tv-section">
-      <h1>TVs</h1>
-      <div class="flex">
-        <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/smartTV1.jpg")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
+   <div class="flex w-11/12">
+   <div class="px-2 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 ">
+      <%= for product <- @products do %>
+      <!--Card -->
+      <div class="">
+         <div class="rounded  hover:shadow-lg bg-white  ">
+            <%= if product.has_image? do %>
+            <div class=" mb-2 ">
+               <img src={Routes.static_path(@socket, "/images/dashboard/#{product.name}.jpg")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
+            </div>
+            <% else %>
+            <%=img_tag "/images/dashboard/placeholder.svg"%>
+            <% end %>
+            <div class="px-2  ">
+               <div class="font-sans text-xs text-gray-900 truncate ">
+                  <%= product.name %>
                </div>
             </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/smartTV1.jpg")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/smartTV1.jpg")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/smartTV1.jpg")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/smartTV1.jpg")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
+            <div class="px-2 ">
+               <span class=" text-xs  text-gray-500 mr-2 mb-2"><%= product.price%></span>
             </div>
          </div>
       </div>
-      
-   </section>
-   <section id="food-section">
-      <h1>Foods</h1>
-       <div class="flex">
-        <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/rice.jpeg")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/rice.jpeg")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/rice.jpeg")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/rice.jpeg")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/rice.jpeg")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <section id="clothes-section">
-      <h1>CLOTHES</h1>
-       <div class="flex">
-        <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/cloth1.webp")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/cloth1.webp")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/cloth1.webp")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/cloth1.webp")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/.webp")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     Vitron 32 inch Smart TV
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2">sh25,000</span>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-    <div class="px-5 md:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5 ">
-         <%= for product <- @products do %>
-         <!--Card -->
-         <div class="">
-            <div class="rounded  hover:shadow-lg bg-white  ">
-               <div class=" mb-2 ">
-                  <img src={Routes.static_path(@socket, "/images/dashboard/#{product.name}.webp")} class="px-2 h-48 w-48" alt="Phoenix Framework Logo"/>
-               </div>
-               <div class="px-2  ">
-                  <div class="font-sans text-xs text-gray-900 truncate ">
-                     <%= product.name %>
-                  </div>
-               </div>
-               <div class="px-2 ">
-                  <span class=" text-xs  text-gray-500 mr-2 mb-2"><%= product.price%></span>
-               </div>
-              
-            </div>
-         </div>
-         <% end %>
-      </div>
+      <% end %>
+   </div>
+  <div class="w-1/12 bg-orange-400">a</div>
+
+   </div>
+
 </div>

@@ -5,6 +5,7 @@ defmodule Shop.Repo.Migrations.CreateProducts do
     create table(:products) do
       add(:name, :string)
       add(:price, :integer)
+      add(:has_image?, :boolean, default: false)
 
       timestamps()
     end
