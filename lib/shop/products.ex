@@ -8,8 +8,6 @@ defmodule Shop.Products do
 
   alias Shop.Products.Product
 
-  
-
   @doc """
   Returns the list of products.
 
@@ -38,6 +36,13 @@ defmodule Shop.Products do
 
   """
   def get_product!(id), do: Repo.get!(Product, id)
+
+  def get_selected_product_query!(id) do
+    from(p in Product,
+      where: p.id == ^id,
+      select: %{id: p.id, name: p.name, price: p.price}
+    )
+  end
 
   @doc """
   Creates a product.
