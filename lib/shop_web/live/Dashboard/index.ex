@@ -23,9 +23,8 @@ defmodule ShopWeb.DashboardLive.Index do
   end
 
   defp apply_action(socket, :index, _params) do
-    socket =
-      socket
-      |> assign(:products, Products.list_products())
+    socket
+    |> assign(:products, Products.list_products())
   end
 
   defp apply_action(socket, :new, _params) do

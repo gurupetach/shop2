@@ -31,15 +31,15 @@ return_to={Routes.dashboard_index_path(@socket, :index)}
                <% else %>
                <%=img_tag "/images/dashboard/placeholder.svg", class: "px-2 h-36 w-48"%>
                <% end %>
-               <div class="px-2  ">
+               <div class="px-2 ml-8  ">
                   <div class="font-sans text-xs text-gray-900 truncate ">
                      <%= product.name %>
                   </div>
                </div>
-               <div class="px-2   ">
+               <div class="px-2 ml-8  ">
                   <span class=" text-xs  text-gray-500 ml-4 mr-2 mb-2 "><%= product.price%></span>
                </div>
-               <div class="ml-12">
+               <div class="ml-8 mt-1">
                   <button><%= link "Add", to: "#", phx_click: "add", class: "btn btn-primary flex-shrink-0 md:ml-4 bg-orange-400 py-2 px-2 md:px-4 text-white rounded-md", phx_value_id: product.id %></button>
                </div>
             </div>
