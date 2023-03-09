@@ -15,7 +15,14 @@ return_to={Routes.dashboard_index_path(@socket, :index)}
          <h1>Products</h1>
       </div>
       <div>
-         <%= link "PRODUCT +", to: Routes.dashboard_index_path(@socket, :new), class: "bg-blue-500 px-5 py-3 rounded-md text-white font-medium " %>
+         <div class="flex">
+            <div>
+               <p>For ADMINS to Add Product -> </p>
+            </div>
+            <div>
+               <%= link "PRODUCT +", to: Routes.dashboard_index_path(@socket, :new), class: "bg-blue-500 px-5 py-3 rounded-md text-white font-medium " %>
+            </div>
+         </div>
       </div>
    </div>
    <div class="flex sm:flex-col md:flex-row  mt-4">
