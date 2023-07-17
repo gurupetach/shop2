@@ -15,7 +15,7 @@ config :shop, ShopWeb.Endpoint,
   server: true,
   code_reloader: false,
   url: [host: System.get_env("PHX_HOST"), port: 443],
-  check_origin: System.get_env("ALLOW_URL_ORIGIN")
+  check_origin: [System.get_env("ALLOW_URL_ORIGIN")]
 
 config :shop, Shop.Repo,
   adapter: Ecto.Adapters.Postgres,
